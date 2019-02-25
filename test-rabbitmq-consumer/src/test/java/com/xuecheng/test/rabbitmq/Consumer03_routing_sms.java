@@ -5,7 +5,7 @@ import com.rabbitmq.client.*;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-/**入门程序消费者
+/**路由工作模式消费者
  * @author wzq.Jolin
  * @company none
  * @create 2019-02-23 21:39

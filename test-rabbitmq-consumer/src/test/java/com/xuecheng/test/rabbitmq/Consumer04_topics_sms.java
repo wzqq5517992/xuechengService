@@ -5,16 +5,16 @@ import com.rabbitmq.client.*;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-/**路由工作模式消费者
- * @author wzq.Jolin
- * @company none
- * @create 2019-02-23 21:39
- */
-public class Consumer03_routing_email {
+/**
+ * @author Administrator
+ * @version 1.0
+ * @create 2018-06-17 18:22
+ **/
+public class Consumer04_topics_sms {
     //队列名称
-    private static final String QUEUE_INFORM_EMAIL = "queue_inform_email";
-    private static final String EXCHANGE_ROUTING_INFORM="exchange_routing_inform";
-    private static final String ROUTINGKEY_EMAIL="inform_email";
+    private static final String QUEUE_INFORM_SMS = "queue_inform_sms";
+    private static final String EXCHANGE_TOPICS_INFORM="exchange_topics_inform";
+    private static final String ROUTINGKEY_SMS="inform.#.sms.#";
 
     public static void main(String[] args) throws IOException, TimeoutException {
         //通过连接工厂创建新的连接和mq建立连接
@@ -39,7 +39,7 @@ public class Consumer03_routing_email {
          * 4、autoDelete 自动删除，队列不再使用时是否自动删除此队列，如果将此参数和exclusive参数设置为true就可以实现临时队列（队列不用了就自动删除）
          * 5、arguments 参数，可以设置一个队列的扩展参数，比如：可设置存活时间
          */
-        channel.queueDeclare(QUEUE_INFORM_EMAIL,true,false,false,null);
+        channel.queueDeclare(QUEUE_INFORM_SMS,true,false,false,null);
         //声明一个交换机
         //参数：String exchange, String type
         /**
@@ -51,7 +51,7 @@ public class Consumer03_routing_email {
          * topic：对应的Topics工作模式
          * headers： 对应的headers工作模式
          */
-        channel.exchangeDeclare(EXCHANGE_ROUTING_INFORM, BuiltinExchangeType.DIRECT);
+        channel.exchangeDeclare(EXCHANGE_TOPICS_INFORM, BuiltinExchangeType.TOPIC);
         //进行交换机和队列绑定
         //参数：String queue, String exchange, String routingKey
         /**
@@ -60,7 +60,7 @@ public class Consumer03_routing_email {
          * 2、exchange 交换机名称
          * 3、routingKey 路由key，作用是交换机根据路由key的值将消息转发到指定的队列中，在发布订阅模式中调协为空字符串
          */
-        channel.queueBind(QUEUE_INFORM_EMAIL, EXCHANGE_ROUTING_INFORM,ROUTINGKEY_EMAIL);
+        channel.queueBind(QUEUE_INFORM_SMS, EXCHANGE_TOPICS_INFORM,ROUTINGKEY_SMS);
 
         //实现消费方法
         DefaultConsumer defaultConsumer = new DefaultConsumer(channel){
@@ -93,7 +93,7 @@ public class Consumer03_routing_email {
          * 2、autoAck 自动回复，当消费者接收到消息后要告诉mq消息已接收，如果将此参数设置为tru表示会自动回复mq，如果设置为false要通过编程实现回复
          * 3、callback，消费方法，当消费者接收到消息要执行的方法
          */
-        channel.basicConsume(QUEUE_INFORM_EMAIL,true,defaultConsumer);
+        channel.basicConsume(QUEUE_INFORM_SMS,true,defaultConsumer);
 
     }
 }

@@ -12,11 +12,11 @@
 
     <artifactId>test-rabbitmq-producer</artifactId>
     <dependencies>
-        <!--    <dependency>
-            <groupId>com.rabbitmq</groupId>
-            <artifactId>amqp-client</artifactId>
-            <version>4.0.3</version>&lt;!&ndash;此版本与spring boot 1.5.9版本匹配&ndash;&gt;
-        </dependency>-->
+        <!--&lt;!&ndash;    <dependency>-->
+            <!--<groupId>com.rabbitmq</groupId>-->
+            <!--<artifactId>amqp-client</artifactId>-->
+            <!--<version>4.0.3</version>&lt;!&ndash;此版本与spring boot 1.5.9版本匹配&ndash;&gt;-->
+        <!--</dependency>&ndash;&gt;-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
