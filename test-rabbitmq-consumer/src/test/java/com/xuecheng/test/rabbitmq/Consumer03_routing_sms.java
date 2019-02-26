@@ -5,11 +5,11 @@ import com.rabbitmq.client.*;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-/**路由工作模式消费者
- * @author wzq.Jolin
- * @company none
- * @create 2019-02-23 21:39
- */
+/**
+ * @author Administrator
+ * @version 1.0
+ * @create 2018-06-17 18:22
+ **/
 public class Consumer03_routing_sms {
     //队列名称
     private static final String QUEUE_INFORM_SMS = "queue_inform_sms";
@@ -19,7 +19,7 @@ public class Consumer03_routing_sms {
     public static void main(String[] args) throws IOException, TimeoutException {
         //通过连接工厂创建新的连接和mq建立连接
         ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("39.105.162.160");
+        connectionFactory.setHost("127.0.0.1");
         connectionFactory.setPort(5672);//端口
         connectionFactory.setUsername("guest");
         connectionFactory.setPassword("guest");

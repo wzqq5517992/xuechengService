@@ -7,7 +7,7 @@ import com.rabbitmq.client.ConnectionFactory;
 
 import java.util.concurrent.TimeoutException;
 
-/**
+/**入门程序生产者
  * @author wzq.Jolin
  * @company none
  * @create 2019-02-23 18:22
@@ -36,7 +36,7 @@ public class Producer01 {
             channel = connection.createChannel();
             //声明队列，如果队列在mq 中没有则要创建
             //参数：String queue, boolean durable, boolean exclusive, boolean autoDelete, Map<String, Object> arguments
-            /**
+             /**
              * 参数明细
              * 1、queue 队列名称
              * 2、durable 是否持久化，如果持久化，mq重启后队列还在
@@ -47,7 +47,7 @@ public class Producer01 {
             channel.queueDeclare(QUEUE,true,false,false,null);
             //发送消息
             //参数：String exchange, String routingKey, BasicProperties props, byte[] body
-            /**
+             /**
              * 参数明细：
              * 1、exchange，交换机，如果不指定将使用mq的默认交换机（设置为""）
              * 2、routingKey，路由key，交换机根据路由key来将消息转发到指定的队列，如果使用默认交换机，routingKey设置为队列的名称
@@ -55,7 +55,7 @@ public class Producer01 {
              * 4、body，消息内容
              */
             //消息内容
-            String message = "hello world 黑马程序员";
+            String message = "hello world rabbit";
             channel.basicPublish("",QUEUE,null,message.getBytes());
             System.out.println("send to mq "+message);
         } catch (Exception e) {
