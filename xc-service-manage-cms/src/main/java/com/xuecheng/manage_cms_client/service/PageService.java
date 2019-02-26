@@ -1,4 +1,4 @@
-package com.xuecheng.manage_cms.service;
+package com.xuecheng.manage_cms_client.service;
 
 import com.mongodb.client.gridfs.GridFSBucket;
 import com.mongodb.client.gridfs.GridFSDownloadStream;
@@ -14,9 +14,9 @@ import com.xuecheng.framework.model.response.CommonCode;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.QueryResult;
 import com.xuecheng.framework.model.response.ResponseResult;
-import com.xuecheng.manage_cms.dao.CmsConfigRepository;
-import com.xuecheng.manage_cms.dao.CmsPageRepository;
-import com.xuecheng.manage_cms.dao.CmsTemplateRepository;
+import com.xuecheng.manage_cms_client.dao.CmsConfigRepository;
+import com.xuecheng.manage_cms_client.dao.CmsPageRepository;
+import com.xuecheng.manage_cms_client.dao.CmsTemplateRepository;
 import freemarker.cache.StringTemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.Template;

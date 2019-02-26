@@ -1,4 +1,4 @@
-package com.xuecheng.manage_cms.dao;
+package com.xuecheng.manage_cms_client.dao;
 
 import com.mongodb.client.gridfs.GridFSBucket;
 import com.mongodb.client.gridfs.GridFSDownloadStream;

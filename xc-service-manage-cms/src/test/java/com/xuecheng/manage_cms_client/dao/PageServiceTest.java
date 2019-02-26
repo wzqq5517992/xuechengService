@@ -1,6 +1,6 @@
-package com.xuecheng.manage_cms.dao;
+package com.xuecheng.manage_cms_client.dao;
 
-import com.xuecheng.manage_cms.service.PageService;
+import com.xuecheng.manage_cms_client.service.PageService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

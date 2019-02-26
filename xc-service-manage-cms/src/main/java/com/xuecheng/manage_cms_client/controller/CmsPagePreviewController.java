@@ -1,7 +1,7 @@
-package com.xuecheng.manage_cms.controller;
+package com.xuecheng.manage_cms_client.controller;
 
 import com.xuecheng.framework.web.BaseController;
-import com.xuecheng.manage_cms.service.PageService;
+import com.xuecheng.manage_cms_client.service.PageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,8 +1,8 @@
-package com.xuecheng.manage_cms.controller;
+package com.xuecheng.manage_cms_client.controller;
 
 import com.xuecheng.api.cms.CmsConfigControllerApi;
 import com.xuecheng.framework.domain.cms.CmsConfig;
-import com.xuecheng.manage_cms.service.PageService;
+import com.xuecheng.manage_cms_client.service.PageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
