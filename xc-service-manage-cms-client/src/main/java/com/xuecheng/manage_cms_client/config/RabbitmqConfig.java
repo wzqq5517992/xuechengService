@@ -42,7 +42,7 @@ public class RabbitmqConfig {
     /**
      * 绑定队列到交换机
      *
-     * @param queue    the queue
+     * @param queue the queue
      * @param exchange the exchange
      * @return the binding
      */

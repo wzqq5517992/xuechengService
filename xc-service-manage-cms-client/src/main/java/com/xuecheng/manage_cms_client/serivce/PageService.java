@@ -132,7 +132,11 @@ public class PageService {
         return null;
     }
 
-    //根据站点id查询站点信息
+    /**
+     * 根据站点id查询站点信息
+     * @param siteId
+     * @return
+     */
     public CmsSite findCmsSiteById(String siteId){
         Optional<CmsSite> cmsSite = cmsSiteRepository.findById(siteId);
         if(cmsSite.isPresent()){

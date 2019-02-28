@@ -35,7 +35,7 @@ public interface CmsPageControllerApi {
      * @return
      */
     @ApiOperation("通过页面ID查询页面信息")
-    public CmsPage findById(String id);
+     CmsPage findById(String id);
 
     /**
      * 修改更新后的页面信息
@@ -44,7 +44,7 @@ public interface CmsPageControllerApi {
      * @return
      */
     @ApiOperation("修改更新后的页面信息")
-    public CmsPageResult edit(String id,CmsPage cmsPage);
+     CmsPageResult edit(String id,CmsPage cmsPage);
 
     /**
      * 删除页面
@@ -52,6 +52,19 @@ public interface CmsPageControllerApi {
      * @return
      */
     @ApiOperation("删除页面")
-    public ResponseResult delete(String id);
+    ResponseResult delete(String id);
+
+    /**
+     * 页面发布
+     * @param pageId
+     * @return
+     */
+    @ApiOperation("页面发布")
+    ResponseResult post(String pageId);
+
+
+
+
+
 
 }

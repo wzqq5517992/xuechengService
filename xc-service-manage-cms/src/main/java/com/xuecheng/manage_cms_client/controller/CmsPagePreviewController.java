@@ -31,9 +31,8 @@ public class CmsPagePreviewController extends BaseController {
     public void preview(@PathVariable("pageId") String pageId) throws IOException {
         //执行静态化
         String pageHtml = pageService.getPageHtml(pageId);
-        //通过response对象将内容输出
+        //通过response对象将内容输出,即直接在浏览器上显示所生成的页面
         ServletOutputStream outputStream = response.getOutputStream();
-
         outputStream.write(pageHtml.getBytes("utf-8"));
 
     }
