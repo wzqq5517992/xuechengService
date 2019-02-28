@@ -224,7 +224,7 @@ public class PageService {
      */
     public String getPageHtml(String pageId){
 
-        // 通过dataUrl   获取数据模型
+        // 1.通过dataUrl   获取数据模型
         Map model = getModelByPageId(pageId);
         System.out.println("model:"+model);
         if(model == null){
@@ -232,13 +232,13 @@ public class PageService {
             ExceptionCast.cast(CmsCode.CMS_GENERATEHTML_DATAISNULL);
         }
 
-        //获取页面的模板信息
+        //2.获取页面的模板信息
         String template = getTemplateByPageId(pageId);
         if(StringUtils.isEmpty(template)){
             ExceptionCast.cast(CmsCode.CMS_GENERATEHTML_TEMPLATEISNULL);
         }
 
-//        //执行静态化
+//        //3.执行静态化
        String html = generateHtml(template, model);
         return html;
 

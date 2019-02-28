@@ -8,18 +8,17 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
+/**Mongodb配置类
  * @author wzq.Jolin
  * @company none
- * @create 2019-02-22 15:26
+ * @create 2019-02-27 9:45
  */
 @Configuration
 public class MongoConfig {
     @Value("${spring.data.mongodb.database}")
     String db;
-
     /**
-     * 创建GridFSBucket
+     * 创建GridFSBucket用于操作流对象
      * @param mongoClient
      * @return
      */
