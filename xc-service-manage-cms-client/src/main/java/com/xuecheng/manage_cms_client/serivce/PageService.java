@@ -75,6 +75,7 @@ public class PageService {
         String sitePhysicalPath = cmsSite.getSitePhysicalPath();
         //得到页面的物理路径
         String pagePath = sitePhysicalPath + cmsPage.getPagePhysicalPath() + cmsPage.getPageName();
+        System.out.printf("pagePath:"+pagePath);
         //将inputStream流保存到服务器物理路径上
         FileOutputStream fileOutputStream = null;
         try {
