@@ -7,10 +7,7 @@ import com.xuecheng.framework.model.response.ResponseResult;
 import com.xuecheng.manage_course.service.CourseService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author wzq.Jolin
@@ -40,7 +37,8 @@ public class CourseController  implements CourseControllerApi {
      * @return
      */
     @Override
-    public ResponseResult addTeachplan(Teachplan teachplan) {
-        return null;
+    @PostMapping("/teachplan/add")
+    public ResponseResult addTeachplan(@RequestBody  Teachplan teachplan) {
+        return courseService.addTeachplan(teachplan);
     }
 }
