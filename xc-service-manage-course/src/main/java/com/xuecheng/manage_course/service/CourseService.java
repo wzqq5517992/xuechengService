@@ -10,6 +10,7 @@ import com.xuecheng.manage_course.dao.CourseBaseRepository;
 import com.xuecheng.manage_course.dao.TeachplanMapper;
 import com.xuecheng.manage_course.dao.TeachplanRepository;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,7 +63,25 @@ public class CourseService {
             //获取课程的根结点
             parentid = getTeachplanRoot(courseid);
         }
-        return null;
+        //查询根结点信息
+        Optional<Teachplan> optional = teachplanRepository.findById(parentid);
+        Teachplan teachplan1 = optional.get();
+        //父结点的级别
+        String parent_grade = teachplan1.getGrade();
+        //创建一个新结点准备添加
+        Teachplan teachplanNew = new Teachplan();
+        //将teachplan的属性拷贝到teachplanNew中
+        BeanUtils.copyProperties(teachplan,teachplanNew);
+        //要设置必要的属性
+        teachplanNew.setParentid(parentid);
+        if(parent_grade.equals("1")){
+            teachplanNew.setGrade("2");
+        }else{
+            teachplanNew.setGrade("3");
+        }
+        teachplanNew.setStatus("0");//未发布
+        teachplanRepository.save(teachplanNew);
+        return new ResponseResult(CommonCode.SUCCESS);
     }
 
     /**
