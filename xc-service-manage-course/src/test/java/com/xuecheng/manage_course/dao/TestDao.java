@@ -1,5 +1,7 @@
 package com.xuecheng.manage_course.dao;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.xuecheng.framework.domain.course.CourseBase;
 import com.xuecheng.framework.domain.course.ext.TeachplanNode;
 import org.junit.Test;
@@ -9,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.sound.midi.Soundbank;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -44,5 +47,13 @@ public class TestDao {
     public  void testTeach(){
         TeachplanNode teachplanNode = teachplanMapper.selectList("4028e581617f945f01617f9dabc40000");
         System.out.println(teachplanNode);
+    }
+    @Test
+    public  void tesrPageHelp(){
+         PageHelper.startPage(1, 10);
+        Page<CourseBase> courseList = courseMapper.findCourseList();
+        List<CourseBase> result = courseList.getResult();
+        System.out.println(courseList);
+
     }
 }
