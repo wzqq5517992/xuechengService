@@ -1,8 +1,13 @@
 package com.xuecheng.manage_course.controller;
 
 import com.xuecheng.api.course.CourseControllerApi;
+import com.xuecheng.framework.domain.course.CourseBase;
+import com.xuecheng.framework.domain.course.CoursePic;
 import com.xuecheng.framework.domain.course.Teachplan;
+import com.xuecheng.framework.domain.course.ext.CourseInfo;
 import com.xuecheng.framework.domain.course.ext.TeachplanNode;
+import com.xuecheng.framework.domain.course.request.CourseListRequest;
+import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.ResponseResult;
 import com.xuecheng.manage_course.service.CourseService;
 import io.swagger.annotations.ApiOperation;
@@ -19,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 public class CourseController  implements CourseControllerApi {
     @Autowired
     CourseService courseService;
+
     /**
      * 查询课程计划列表
      * @param courseId
@@ -40,5 +46,28 @@ public class CourseController  implements CourseControllerApi {
     @PostMapping("/teachplan/add")
     public ResponseResult addTeachplan(@RequestBody  Teachplan teachplan) {
         return courseService.addTeachplan(teachplan);
+    }
+
+
+
+    @RequestMapping("/course")
+    @Override
+    public QueryResponseResult<CourseInfo> findCourseList(@PathVariable("page")  int page, @PathVariable("size") int size, CourseListRequest courseListRequest) {
+        return courseService.findCourseList(page,size,courseListRequest);
+    }
+
+    @Override
+    public ResponseResult addCoursePic(String courseId, String pic) {
+        return courseService.addCoursePic(courseId,pic);
+    }
+
+    @Override
+    public CoursePic findCoursePic(String courseId) {
+        return courseService.findCoursePic(courseId);
+    }
+
+    @Override
+    public ResponseResult deleteCoursePic(String courseId) {
+        return courseService.deleteCoursePic(courseId);
     }
 }
