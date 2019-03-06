@@ -3,6 +3,7 @@ package com.xuecheng.manage_cms_client;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @company none
  * @create 2019-02-26 22:13
  */
+@EnableDiscoveryClient
 @SpringBootApplication
 @EntityScan("com.xuecheng.framework.domain.cms")//扫描实体类
 @ComponentScan(basePackages={"com.xuecheng.framework"})//扫描common包下的类

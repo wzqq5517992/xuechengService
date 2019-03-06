@@ -53,6 +53,7 @@ public class TestDao {
          PageHelper.startPage(1, 10);
         Page<CourseBase> courseList = courseMapper.findCourseList();
         List<CourseBase> result = courseList.getResult();
+        long total = courseList.getTotal();
         System.out.println(courseList);
 
     }
