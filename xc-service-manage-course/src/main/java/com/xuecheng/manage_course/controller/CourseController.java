@@ -5,6 +5,7 @@ import com.xuecheng.framework.domain.course.CourseBase;
 import com.xuecheng.framework.domain.course.CoursePic;
 import com.xuecheng.framework.domain.course.Teachplan;
 import com.xuecheng.framework.domain.course.ext.CourseInfo;
+import com.xuecheng.framework.domain.course.ext.CourseView;
 import com.xuecheng.framework.domain.course.ext.TeachplanNode;
 import com.xuecheng.framework.domain.course.request.CourseListRequest;
 import com.xuecheng.framework.model.response.QueryResponseResult;
@@ -57,17 +58,38 @@ public class CourseController  implements CourseControllerApi {
     }
 
     @Override
-    public ResponseResult addCoursePic(String courseId, String pic) {
+    @PostMapping("/coursepic/add")
+    public ResponseResult addCoursePic(@RequestParam("courseId") String courseId, @RequestParam("pic")String pic) {
         return courseService.addCoursePic(courseId,pic);
     }
 
     @Override
-    public CoursePic findCoursePic(String courseId) {
+    @GetMapping("/coursepic/list/{courseId}")
+    public CoursePic findCoursePic(@PathVariable("courseId") String courseId) {
         return courseService.findCoursePic(courseId);
     }
 
     @Override
-    public ResponseResult deleteCoursePic(String courseId) {
+    @DeleteMapping("/coursepic/delete")
+    public ResponseResult deleteCoursePic(@RequestParam("courseId") String courseId) {
         return courseService.deleteCoursePic(courseId);
     }
+
+    /**
+     * 课程视图查询
+     * @param id
+     * @return
+     */
+    @Override
+    @GetMapping("/courseview/{id}")
+    public CourseView courseview(@PathVariable("id") String id) {
+        return courseService.getCoruseView(id);
+    }
+
+//    @Override
+//    @PostMapping("/preview/{id}")
+//    public CoursePublishResult preview(@PathVariable("id") String id) {
+//        return courseService.preview(id);
+//
+//    }
 }
