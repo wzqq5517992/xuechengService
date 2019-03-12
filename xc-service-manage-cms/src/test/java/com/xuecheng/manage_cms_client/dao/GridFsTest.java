@@ -39,6 +39,18 @@ public class GridFsTest {
 
     //存文件
     @Test
+    public void testStoreCourse() throws FileNotFoundException {
+        //定义file
+        File file = new File("d:/course.ftl");
+        //定义fileInputStream
+        FileInputStream fileInputStream = new FileInputStream(file);
+        ObjectId objectId = gridFsTemplate.store(fileInputStream, "course.ftl");
+        System.out.println("wzq:" + objectId);
+    }
+
+
+    //存文件
+    @Test
     public void testStore() throws FileNotFoundException {
         //定义file
         File file = new File("d:/index_banner.ftl");

@@ -4,6 +4,7 @@ import com.xuecheng.framework.domain.course.CourseBase;
 import com.xuecheng.framework.domain.course.CoursePic;
 import com.xuecheng.framework.domain.course.Teachplan;
 import com.xuecheng.framework.domain.course.ext.CourseInfo;
+import com.xuecheng.framework.domain.course.ext.CourseView;
 import com.xuecheng.framework.domain.course.ext.TeachplanNode;
 import com.xuecheng.framework.domain.course.request.CourseListRequest;
 import com.xuecheng.framework.model.response.QueryResponseResult;
@@ -39,4 +40,7 @@ public interface CourseControllerApi {
 
     @ApiOperation("删除课程图片")
     public ResponseResult deleteCoursePic(String courseId);
+
+    @ApiOperation("课程视图查询")
+    public CourseView courseview(String id);
 }
