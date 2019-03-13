@@ -33,8 +33,11 @@ public class CmsPagePreviewController extends BaseController {
         String pageHtml = pageService.getPageHtml(pageId);
         //通过response对象将内容输出,即直接在浏览器上显示所生成的页面
         ServletOutputStream outputStream = response.getOutputStream();
+        response.setHeader("Content‐type","text/html;charset=utf‐8");
         outputStream.write(pageHtml.getBytes("utf-8"));
 
     }
+
+
 }
 

@@ -20,6 +20,7 @@ import java.util.Map;
 public class testRestTemplate {
     @Autowired
     RestTemplate restTemplate;
+
     @Test
     public void testRestTemplate(){
         ResponseEntity<Map> forEntity = restTemplate.getForEntity("http://localhost:31001/cms/config/getmodel/5a791725dd573c3574ee333f", Map.class);
