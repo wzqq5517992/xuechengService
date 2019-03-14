@@ -1,0 +1,77 @@
+MongoDB特点：
+写入操作频繁
+数据量大
+价值低
+
+支持的数据类型：
+文件存储格式为 BSON（一种 JSON 的扩展）
+
+
+MongoDB 的逻辑结构是一种层次结构。主要由： 文档(document)、集合(collection)、数据库(database)这三部分组成的。逻辑结构是面 向用户的，用户使用 MongoDB 开发应用程序使用的就是逻辑结构。 （1）MongoDB 的文档（document），相当于关系数据库中的一行记录。 
+（2）多个文档组成一个集合（collection），相当于关系数据库的表。 
+（3）多个集合（collection），逻辑上组织在一起，就是数据库（database）。 （4）一个 MongoDB 实例支持多个数据库（database）。 
+注意：
+mongodb中 _id字段是主键
+
+//创建新用户
+db.createUser({ 
+    user: "root", 
+    pwd: "root", 
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ], 
+    mechanisms : ["SCRAM-SHA-1"] 
+})
+
+
+
+常用命令：
+1.use 数据库名称  eg： use  spit  --使用或创建spit数据库
+2.db.user.find   --查看user表中的数据 user表不存在则新建user表
+3.db.user.insert({content:"听说十次方课程很给力呀",userid:"1011",nickname:"小 雅",visits:NumberInt(902)})   --向user表中插入bson数据
+4.db.user.find({userid:"1314"})  --查询userid为1314的所有记录
+5.db.user.findOne({userid:"1013"}) 或者db.user.find().limit(1)   --查询userid=1013的第一条数据
+6.db.集合名称.update(条件,修改后的数据)  eg:db.user.update({"_id","1"},{$set:{visets,NumberInt(2000)}})   --修改——id=1的visits的值
+7.db.user.remove({"_id":NumberInt(1)}) --删除_id=1d的数据
+8.db.user.count({userid:"1013"}) --查询userid=1013的总数据条数
+9.db.user.find({content:/^流量/})  --查询content以流量开头的数据(模糊查询)
+10.
+db.集合名称.find({ "field" : { $gt: value }}) // 大于: field > value 
+db.集合名称.find({ "field" : { $lt: value }}) // 小于: field < value
+db.集合名称.find({ "field" : { $gte: value }}) // 大于等于: field >= value 
+db.集合名称.find({ "field" : { $lte: value }}) // 小于等于: field <= value 
+db.集合名称.find({ "field" : { $ne: value }}) // 不等于: field != value
+11.
+--查询吐槽集合中userid字段不包含1013和1014的文档  db.spit.find({userid:{$nin:["1013","1014"]}})
+
+12.db.spit.find({$and:[ {visits:{$gte:1000}} ,{visits:{$lt:2000} }]})  --连接查询   大于1000小于2000
+
+
+
+
+
+如果我们想实现对某列值在原有值的基础上进行增加或减少，可以使用$inc运算符来实现
+db.spit.update({_id:"2"},{$inc:{visits:NumberInt(1)}}  )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
