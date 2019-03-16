@@ -58,7 +58,7 @@ public class LambdaTest {
 
 
 
-        List<Employee> list1 = Arrays.asList(objectArray);
+        List<Employee> list1 = Arrays.asList(objectArray);//对线数组转化为list套对象
         //  System.out.println("wzq:" + list1);
 
         /**
