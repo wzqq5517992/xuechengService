@@ -26,7 +26,7 @@ public class LambdaTest {
         // System.out.println(Arrays.toString(planets));
 
         //  System.out.println("按照长度从大到小排序:");
-        Arrays.sort(planets, (x, y) -> -(x.length() - y.length()));  //按照字符串长度从大到小排序
+        Arrays.sort(planets, (String x,String y) -> -(x.length() - y.length()));  //按照字符串长度从大到小排序
         //System.out.println(Arrays.toString(planets));
 
         Timer timer = new Timer(1000, event -> System.out.println("the timer is:" + new Date()));
